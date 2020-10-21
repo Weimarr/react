@@ -12,4 +12,11 @@
 }
 
 
+.app-wrapper-content
+ {
+    grid-area: c;
+    background-color: gray;
+    border: 1px solid;
+  
+ }
 

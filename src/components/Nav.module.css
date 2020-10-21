@@ -3,7 +3,9 @@
    background-color: lightgray;
    border: 1px solid;
  }
-
+.item {
+   margin: 10px;
+}
  .item a{
     color: white;
     text-decoration: none;

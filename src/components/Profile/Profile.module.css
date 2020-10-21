@@ -13,9 +13,8 @@
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
-   margin: 20px;
  }
-.content .profile_data .avatar {
+ .profile_data .avatar {
   width: 150px;
   height: 150px;
   margin-right: 20px;

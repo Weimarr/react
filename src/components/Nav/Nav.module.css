@@ -2,14 +2,19 @@
    grid-area: n;
    background-color: gray;
    border: 1px solid;
+   padding: 20px;
  }
 .item {
-   margin: 10px;
+   margin-bottom: 5px;
 }
  .item a{
     color: white;
     text-decoration: none;
+    
  }
  .item a:hover {
     color:lightblue;
  }
+.item a.active {
+   color:lightblue;
+}

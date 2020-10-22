@@ -1,0 +1,23 @@
+.bg {
+   width: 100%;
+   height: 350px;
+ }
+.profile_data {
+   display: flex;
+   max-width: 300px;
+   width: 100%;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px;
+ }
+ .profile_data .avatar {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+
+}
+.profile_data .desc {
+  color: white;
+  
+}

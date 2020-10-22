@@ -17,4 +17,5 @@
  }
 .item a.active {
    color:lightblue;
+   font-weight: 700;
 }

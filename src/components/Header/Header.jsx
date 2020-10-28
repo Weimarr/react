@@ -4,7 +4,7 @@ import classes from './Header.module.css';
 
 const Header = () => {
    return <header className={classes.header}>
-      <img src="https://cdn.worldvectorlogo.com/logos/mtg.svg" alt="" />
+      <img src="https://png.pngitem.com/pimgs/s/279-2795397_dogecoin-logo-doge-gamer-hd-png-download.png" alt="" />
    </header>
 }
 

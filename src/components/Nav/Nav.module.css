@@ -19,3 +19,7 @@
    color:lightblue;
    font-weight: 700;
 }
+.friendsItem img {
+   width: 30px;
+   height: 30px;
+}

@@ -7,6 +7,12 @@ grid-template-columns: 2fr 10fr;
    padding: 20px;
 
 }
+.dialogItem {
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   margin-bottom: 5px;
+}
 .dialogs .active {
    color: lightblue;
    font-weight: 700;
@@ -16,12 +22,9 @@ grid-template-columns: 2fr 10fr;
    display: flex;
    align-items: center;
    flex-direction: row;
-}
-.dialog a{
    color: white;
    text-decoration: none;
    font-weight: 400;
-
 }
 
 .dialog img {

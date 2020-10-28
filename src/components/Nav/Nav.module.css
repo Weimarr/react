@@ -19,7 +19,31 @@
    color:lightblue;
    font-weight: 700;
 }
+
+.friends {
+   margin-top: 30px;
+
+}
+.friendsList {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 15px;
+}
+.friendsItem {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   
+}
+
 .friendsItem img {
    width: 30px;
    height: 30px;
+}
+.friendsItem span {
+   color: #fff;
+   font-size: 12px;
 }

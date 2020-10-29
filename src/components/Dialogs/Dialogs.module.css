@@ -1,10 +1,16 @@
+* {
+   box-sizing: border-box;
+}
+
 .dialogs {
 display: grid;
-grid-template-columns: 2fr 10fr;
+grid-template-columns: 3fr 10fr;
+
 }
 
 .dialogsItems {
    padding: 20px;
+   border-right: 1px solid black;
 
 }
 .dialogItem {
@@ -12,6 +18,15 @@ grid-template-columns: 2fr 10fr;
    flex-direction: column;
    align-items: start;
    margin-bottom: 5px;
+}
+.dialogItem .imgBlock {
+   background-color: #fff;
+   width: 35px;
+   height: 35px;
+   border-radius: 50%;
+   position: relative;
+   margin-right: 5px;
+   border: 1px solid black;
 }
 .dialogs .active {
    color: lightblue;
@@ -25,12 +40,18 @@ grid-template-columns: 2fr 10fr;
    color: white;
    text-decoration: none;
    font-weight: 400;
+   margin-right: 20px;
+
 }
 
 .dialog img {
-   width: 40px;
-   height: 40px;
-   margin-right: 5px;
+   height: 25px;
+   width: 25px;
+   position: absolute;
+   top: 10%;
+   left: 10%;
+
+
 
 }
 
@@ -49,4 +70,13 @@ color: black;
 border: 1px solid;
 border-radius: 15px;
 margin-bottom: 5px;
+}
+
+.createMessage {
+   display: flex;
+   flex-direction: column;
+}
+.createMessage textarea {
+   height: 50px;
+   border-radius: 5px;
 }

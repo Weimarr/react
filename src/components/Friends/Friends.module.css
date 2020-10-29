@@ -1,0 +1,14 @@
+.friendsPage {
+   padding: 10px;
+}
+.friendsPage h1 {
+   color: aliceblue;
+}
+.friendsPage .friendsList {
+   display: flex;
+   flex-direction: row;
+   max-width: 700px;
+   width: 100%;
+   justify-content: start;
+   align-items: center;
+}

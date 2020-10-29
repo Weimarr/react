@@ -5,7 +5,7 @@ const Post = (props) => {
    return (
       <div className={classes.item}>
          <div className={classes.user_info}>
-            <img src="https://lh3.googleusercontent.com/proxy/Wtx-6WTyfhUEGl3vSv8H9exBqenRRKwRnOinV9VRDZjagSdFyOth-Eqr-QhcLaIhJn6NAaEV8YJQK5mr6tBFsG3bn9l0OoKzGv7Cv6bYrUs" alt="" />
+            <img src="https://lh3.googleusercontent.com/proxy/yGM6yoco47PUL8dd3PRDUmekgSSas2qVA57UDZmoGjI_NzGNBCsr_OUhenFHhtn8ikmUljAvXJ6h34GHX43cIfuNevTy_B2y4HFtz7qlHuE" alt="" />
             <div className={classes.user_name}>{props.name}</div>
          </div>
          <p>{props.message}</p>

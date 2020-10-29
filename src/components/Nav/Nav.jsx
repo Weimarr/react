@@ -22,9 +22,13 @@ const Nav = (props) => {
     <div className={`${classes.item} ${classes.friends}`}>
       <NavLink to="/friends" activeClassName={classes.active}>Friends</NavLink>
       <div className={classes.friendsList}>
-        <div className={classes.friendsItem}><img src={props.state.dialogs[0].imgUrl} alt="" /><span>{props.state.dialogs[0].name}</span></div>
-        <div className={classes.friendsItem}><img src={props.state.dialogs[1].imgUrl} alt="" /><span>{props.state.dialogs[1].name}</span></div>
-        <div className={classes.friendsItem}><img src={props.state.dialogs[2].imgUrl} alt="" /><span>{props.state.dialogs[2].name}</span></div>
+        <div className={classes.friendsItem}>
+          <div className={classes.imgBlock}>
+          <img src={props.state.dialogs[0].imgUrl} alt="" /></div><span>{props.state.dialogs[0].name}</span></div>
+        <div className={classes.friendsItem}><div className={classes.imgBlock}>
+        <img src={props.state.dialogs[1].imgUrl} alt="" /></div><span>{props.state.dialogs[1].name}</span></div>
+        <div className={classes.friendsItem}><div className={classes.imgBlock}>
+        <img src={props.state.dialogs[2].imgUrl} alt="" /></div><span>{props.state.dialogs[2].name}</span></div>
       </div>
 
     </div>

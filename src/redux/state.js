@@ -1,5 +1,8 @@
+
+import { renderTree } from '../index';
+
 let state = {
-   profilePage: {
+    profilePage: {
       posts: [
          { id: 1, name: 'Dim Dimych', message: 'Hi, how are you?', likesCount: 12, },
          { id: 2, name: 'Max Vadimych', message: 'Its my 1st post!', likesCount: 13, },
@@ -26,4 +29,24 @@ let state = {
    
 }
 
+export let addPost = (message) => {
+   let newPost = {
+      id: 4,
+      name: 'Jan Janusz',
+      message: message,
+      likesCount: 0
+   }
+   state.profilePage.posts.unshift(newPost);
+ renderTree();
+}
+
+export let addMessage = (message) => {
+   let newMessage = {
+      id: 6,
+      message: message
+   }
+   state.dialogsPage.messages.push(newMessage);
+   renderTree();
+}
+ 
 export default state;

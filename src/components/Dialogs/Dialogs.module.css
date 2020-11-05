@@ -83,4 +83,7 @@ margin-bottom: 5px;
 .createMessage textarea {
    height: 50px;
    border-radius: 5px;
+   padding: 10px;
+   outline: none;
+   
 }

@@ -1,14 +1,15 @@
+import { renderTree } from '../render';
 
-import { renderTree } from '../index';
 
 let state = {
-    profilePage: {
+   profilePage: {
       posts: [
          { id: 1, name: 'Dim Dimych', message: 'Hi, how are you?', likesCount: 12, },
          { id: 2, name: 'Max Vadimych', message: 'Its my 1st post!', likesCount: 13, },
          { id: 3, name: 'Petr Petrovich', message: 'What a time to be alive?', likesCount: 1, },
       ],
-     
+      newPostText: 'Write some text...'
+
    },
    dialogsPage: {
       messages: [
@@ -19,25 +20,37 @@ let state = {
       ],
       dialogs: [
          { id: 1, name: 'Zhekich', isActive: true, imgUrl: 'https://i.redd.it/k5ftx3xap9e31.png' },
-         { id: 2, name: 'Rus', imgUrl: 'https://i.kym-cdn.com/photos/images/original/001/794/038/b9f.png'  },
+         { id: 2, name: 'Rus', imgUrl: 'https://i.kym-cdn.com/photos/images/original/001/794/038/b9f.png' },
          { id: 3, name: 'Oleg', imgUrl: 'https://i.redd.it/24xgso9v2fc41.png' },
          { id: 4, name: 'Serega', imgUrl: 'https://i.imgur.com/w6uKzoo.jpg' },
          { id: 5, name: 'Sanya', imgUrl: 'https://i.kym-cdn.com/photos/images/original/001/767/472/445.png' },
          { id: 6, name: 'Yulka', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Doge.png' }
-      ]
+      ],
+      newMessageText: 'Write some text... '
    }
-   
+
 }
 
-export let addPost = (message) => {
+export let addPost = () => {
    let newPost = {
       id: 4,
       name: 'Jan Janusz',
-      message: message,
+      message: state.profilePage.newPostText,
       likesCount: 0
    }
    state.profilePage.posts.unshift(newPost);
- renderTree();
+   state.profilePage.newPostText = '';
+   renderTree(state);
+}
+export let updateNewPostText = (newText) => {
+ 
+   state.profilePage.newPostText = newText;
+   renderTree(state);
+}
+
+export let updateNewMessage = (newMessage) => {
+      state.dialogsPage.newMessageText = newMessage;
+      renderTree(state);
 }
 
 export let addMessage = (message) => {
@@ -46,7 +59,9 @@ export let addMessage = (message) => {
       message: message
    }
    state.dialogsPage.messages.push(newMessage);
-   renderTree();
+   state.dialogsPage.newMessageText = '';
+   renderTree(state);
 }
- 
+
+
 export default state;

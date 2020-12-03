@@ -26,7 +26,7 @@ function App(props) {
           <Route path='/settings' component={Settings} />
           <Route path='/dialogs' render={() => <Dialogs
             addMessage={props.addMessage}
-            updateNewMessage = {props.updateNewMessage}
+            updateNewMessage={props.updateNewMessage}
             state={props.state.dialogsPage} />} />
           <Route path='/profile' render={() => <Profile
             addPost={props.addPost}

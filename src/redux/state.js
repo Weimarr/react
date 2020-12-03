@@ -1,67 +1,73 @@
-import { renderTree } from '../render';
+let store = {
+   _state: {
+      profilePage: {
+         posts: [
+            { id: 1, name: 'Dim Dimych', message: 'Hi, how are you?', likesCount: 12, },
+            { id: 2, name: 'Max Vadimych', message: 'Its my 1st post!', likesCount: 13, },
+            { id: 3, name: 'Petr Petrovich', message: 'What a time to be alive?', likesCount: 1, },
+         ],
+         newPostText: 'Write some text...'
 
-
-let state = {
-   profilePage: {
-      posts: [
-         { id: 1, name: 'Dim Dimych', message: 'Hi, how are you?', likesCount: 12, },
-         { id: 2, name: 'Max Vadimych', message: 'Its my 1st post!', likesCount: 13, },
-         { id: 3, name: 'Petr Petrovich', message: 'What a time to be alive?', likesCount: 1, },
-      ],
-      newPostText: 'Write some text...'
+      },
+      dialogsPage: {
+         messages: [
+            { id: 1, message: 'Hello' },
+            { id: 2, message: 'How are you?' },
+            { id: 3, message: 'Have a good day!' },
+            { id: 4, message: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quam perferendis iusto id cumque maiores at, voluptates, voluptatem officiis delectus vitae, rem sunt quibusdam velit facere eaque ullam est ipsa?" }
+         ],
+         dialogs: [
+            { id: 1, name: 'Zhekich', isActive: true, imgUrl: 'https://i.redd.it/k5ftx3xap9e31.png' },
+            { id: 2, name: 'Rus', imgUrl: 'https://i.kym-cdn.com/photos/images/original/001/794/038/b9f.png' },
+            { id: 3, name: 'Oleg', imgUrl: 'https://i.redd.it/24xgso9v2fc41.png' },
+            { id: 4, name: 'Serega', imgUrl: 'https://i.imgur.com/w6uKzoo.jpg' },
+            { id: 5, name: 'Sanya', imgUrl: 'https://i.kym-cdn.com/photos/images/original/001/767/472/445.png' },
+            { id: 6, name: 'Yulka', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Doge.png' }
+         ],
+         newMessageText: 'Write some text... '
+      }
 
    },
-   dialogsPage: {
-      messages: [
-         { id: 1, message: 'Hello' },
-         { id: 2, message: 'How are you?' },
-         { id: 3, message: 'Have a good day!' },
-         { id: 4, message: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quam perferendis iusto id cumque maiores at, voluptates, voluptatem officiis delectus vitae, rem sunt quibusdam velit facere eaque ullam est ipsa?" }
-      ],
-      dialogs: [
-         { id: 1, name: 'Zhekich', isActive: true, imgUrl: 'https://i.redd.it/k5ftx3xap9e31.png' },
-         { id: 2, name: 'Rus', imgUrl: 'https://i.kym-cdn.com/photos/images/original/001/794/038/b9f.png' },
-         { id: 3, name: 'Oleg', imgUrl: 'https://i.redd.it/24xgso9v2fc41.png' },
-         { id: 4, name: 'Serega', imgUrl: 'https://i.imgur.com/w6uKzoo.jpg' },
-         { id: 5, name: 'Sanya', imgUrl: 'https://i.kym-cdn.com/photos/images/original/001/767/472/445.png' },
-         { id: 6, name: 'Yulka', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Doge.png' }
-      ],
-      newMessageText: 'Write some text... '
+   getState () {
+      return this._state;
+   },
+   _callSubscriber(){ },
+   addPost() {
+      let newPost = {
+         id: 4,
+         name: 'Jan Janusz',
+         message: this._state.profilePage.newPostText,
+         likesCount: 0
+      }
+      this._state.profilePage.posts.unshift(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
+   },
+   updateNewPostText(newText) {
+
+      this._state.profilePage.newPostText = newText;
+      this._callSubscriber(this._state);
+   },
+   updateNewMessage(newMessage) {
+      this._state.dialogsPage.newMessageText = newMessage;
+      this._callSubscriber(this._state);
+   },
+   addMessage(message) {
+      let newMessage = {
+         id: 6,
+         message: message
+      }
+      this._state.dialogsPage.messages.push(newMessage);
+      this._state.dialogsPage.newMessageText = '';
+      this._callSubscriber(this._state);
+   },
+   subscribe(observer) {
+      this._callSubscriber = observer;
    }
-
-}
-
-export let addPost = () => {
-   let newPost = {
-      id: 4,
-      name: 'Jan Janusz',
-      message: state.profilePage.newPostText,
-      likesCount: 0
-   }
-   state.profilePage.posts.unshift(newPost);
-   state.profilePage.newPostText = '';
-   renderTree(state);
-}
-export let updateNewPostText = (newText) => {
- 
-   state.profilePage.newPostText = newText;
-   renderTree(state);
-}
-
-export let updateNewMessage = (newMessage) => {
-      state.dialogsPage.newMessageText = newMessage;
-      renderTree(state);
-}
-
-export let addMessage = (message) => {
-   let newMessage = {
-      id: 6,
-      message: message
-   }
-   state.dialogsPage.messages.push(newMessage);
-   state.dialogsPage.newMessageText = '';
-   renderTree(state);
 }
 
 
-export default state;
+
+export default store;
+
+window.store = store;

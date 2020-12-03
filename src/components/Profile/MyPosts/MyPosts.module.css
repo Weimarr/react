@@ -1,5 +1,10 @@
 .newPost {
    padding: 20px;
+   
+}
+.newPost textarea {
+   padding: 10px;
+   outline: none;
 }
 
 .posts {

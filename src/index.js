@@ -5,19 +5,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './redux/state';
+import { BrowserRouter } from 'react-router-dom';
 
 
 let renderTree = (state) => {
    ReactDOM.render(
       <React.StrictMode>
-         <App
-            state={state}
-            dispatch={store.dispatch.bind(store)}
-            // addMessage={store.addMessage.bind(store)}
-            // updateNewMessage ={store.updateNewMessage.bind(store)}
-            // updateNewPostText={store.updateNewPostText.bind(store)} 
-            />
-      </React.StrictMode>,
+         <BrowserRouter>
+         <App store={store} state={state} dispatch={store.dispatch.bind(store)} />
+         </BrowserRouter>
+      </React.StrictMode>
+      ,
       document.getElementById('root')
    );
 }

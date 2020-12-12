@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 let store = {
    _state: {
       profilePage: {
@@ -24,7 +28,7 @@ let store = {
             { id: 5, name: 'Sanya', imgUrl: 'https://i.kym-cdn.com/photos/images/original/001/767/472/445.png' },
             { id: 6, name: 'Yulka', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Doge.png' }
          ],
-         newMessageText: 'Write some text... '
+         newMessageText: ''
       }
 
    },
@@ -83,11 +87,20 @@ let store = {
          this._state.profilePage.newPostText = action.newText;
          this._callSubscriber(this._state);
       }
+      else if (action.type === UPDATE_MESSAGE_TEXT) {
+         this._state.dialogsPage.newMessageText = action.messageText;
+         this._callSubscriber(this._state);
+      }
+      else if (action.type === SEND_MESSAGE) {
+         let text = this._state.dialogsPage.newMessageText;
+         this._state.dialogsPage.newMessageText = '';
+         this._state.dialogsPage.messages.push({ id: 7, message: text },);
+         this._callSubscriber(this._state);
+      }
    }
 
 }
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 export const addPostActionCreator = () => {
    return {
       type: ADD_POST
@@ -99,6 +112,20 @@ export const updateNewPostTextActionCreator = (text) => {
       newText: text
    }
 }
+export const updateNewMessageTextActionCreator = (text) => {
+   return {
+      type: UPDATE_MESSAGE_TEXT, 
+      messageText: text
+   }
+}
+export const sendMessageActionCreator = (text) => {
+   return {
+      type: SEND_MESSAGE, 
+      text: text
+   }
+}
+
+
 
 export default store;
 

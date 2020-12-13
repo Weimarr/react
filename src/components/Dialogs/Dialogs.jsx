@@ -3,7 +3,7 @@ import classes from './Dialogs.module.css'
 import { NavLink } from 'react-router-dom';
 import DialogItem from './Dialogitem/DialogItem';
 import Message from './Message/Message';
-import { updateNewMessageTextActionCreator, sendMessageActionCreator } from '../../redux/state';
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogs-reducer';
 
 
 
@@ -13,7 +13,6 @@ const Dialogs = (props) => {
 
 
    let newMessageText = state.newMessageText;
-   let addNewMessage = React.createRef();
    let sendMessage = () => {
       props.store.dispatch(sendMessageActionCreator());
    }
@@ -37,7 +36,7 @@ const Dialogs = (props) => {
          <div className={classes.messages}>
             <div>{messageElements}</div>
             <div className={classes.createMessage}>
-               <textarea placeholder="Enter your message" onChange={messageOnChange} name="" ref={addNewMessage} cols="30" rows="10" value={newMessageText} ></textarea>
+               <textarea placeholder="Enter your message" onChange={messageOnChange} name=""  cols="30" rows="10" value={newMessageText} ></textarea>
                <button onClick={sendMessage}>Send message</button>
             </div>
 

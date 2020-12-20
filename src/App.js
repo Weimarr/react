@@ -29,7 +29,6 @@ function App(props) {
           dispatch={props.dispatch} />} />
         <Route path='/profile' render={() => <Profile
           dispatch={props.dispatch}
-          // updateNewPostText={props.updateNewPostText} 
           profilePage={props.state.profilePage} />} />
         <Route
           path='/friends'

@@ -9,6 +9,7 @@ import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import Friends from './components/Friends/Friends';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 
@@ -24,10 +25,11 @@ function App(props) {
         <Route path='/music' component={Music} />
         <Route path='/news' component={News} />
         <Route path='/settings' component={Settings} />
-        <Route path='/dialogs' render={() => <Dialogs
+        <Route path='/dialogs' render={() => <DialogsContainer
           store={props.store}
           dispatch={props.dispatch} />} />
         <Route path='/profile' render={() => <Profile
+          store={props.store}
           dispatch={props.dispatch}
           profilePage={props.state.profilePage} />} />
         <Route
